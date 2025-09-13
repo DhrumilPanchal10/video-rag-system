@@ -1,15 +1,56 @@
-# Real-Time Adaptive RAG System for Long-Form Video QA
+# 🎥 Real-Time Adaptive RAG System for Long-Form Video QA
 
-A sophisticated Retrieval-Augmented Generation system designed to handle long-form video content with intelligent processing, advanced retrieval, and real-time question answering.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green)](https://fastapi.tiangolo.com)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28-red)](https://streamlit.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> **Intelligent Question Answering for Long-Form Video Content**  
+> *Advanced RAG system that processes, indexes, and answers questions about hour-long YouTube videos in real-time*
+
+![Video RAG System Demo](https://via.placeholder.com/800x400.png?text=Video+RAG+System+Demo+Placeholder)
+*Replace with your actual demo GIF/screenshot*
 
 ## 🚀 Features
 
-- **Video Processing**: Download and transcribe YouTube videos using Whisper
-- **Semantic Chunking**: Intelligent segmentation of transcripts using spaCy
-- **Multi-Vector Indexing**: FAISS-based vector storage with metadata
-- **Advanced Retrieval**: Initial vector search followed by cross-encoder reranking
-- **LLM Integration**: Groq API-powered answer generation with timestamp citations
-- **Real-Time Performance**: Optimized for low-latency query responses
-- **Web Interface**: Streamlit-based frontend for easy interaction
+- **🎬 Video Processing**: Automatic YouTube video download & Whisper transcription
+- **🧠 Semantic Chunking**: Intelligent content segmentation using spaCy NLP
+- **🔍 Multi-Vector Retrieval**: FAISS-based semantic search with metadata
+- **🎯 Smart Reranking**: Cross-encoder reranking for precision relevance
+- **💬 LLM Integration**: Groq-powered answers with timestamp citations
+- **⚡ Real-Time Performance**: <5 second query responses on long videos
+- **🌐 Web Interface**: Streamlit frontend with intuitive UI
+- **📊 Production Ready**: FastAPI backend, Docker support, comprehensive API
 
-## 🏗️ Architecture
+## 🏗️ System Architecture
+
+```mermaid
+graph TD
+    A[YouTube URL] --> B[Video Download]
+    B --> C[Whisper Transcription]
+    C --> D[Semantic Chunking]
+    D --> E[FAISS Indexing]
+    E --> F[Vector Database]
+    
+    G[User Question] --> H[Semantic Search]
+    H --> I[Cross-Encoder Reranking]
+    I --> J[LLM Context Generation]
+    J --> K[Groq API]
+    K --> L[Answer with Timestamps]
+    
+    F --> H
+    subgraph Frontend
+        M[Streamlit UI] --> G
+        L --> M
+    end
+    
+    subgraph Backend
+        B
+        C
+        D
+        E
+        H
+        I
+        J
+        K
+    end
