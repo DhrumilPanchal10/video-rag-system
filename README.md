@@ -8,9 +8,6 @@
 > **Intelligent Question Answering for Long-Form Video Content**  
 > *Advanced RAG system that processes, indexes, and answers questions about hour-long YouTube videos in real-time*
 
-![Video RAG System Demo](https://via.placeholder.com/800x400.png?text=Video+RAG+System+Demo+Placeholder)
-*Replace with your actual demo GIF/screenshot*
-
 ## 🚀 Features
 
 - **🎬 Video Processing**: Automatic YouTube video download & Whisper transcription
