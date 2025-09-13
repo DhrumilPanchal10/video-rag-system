@@ -1,0 +1,66 @@
+# Create comprehensive .gitignore
+cat > .gitignore << 'EOL'
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.local
+
+# Data files
+data/videos/*
+!data/videos/.gitkeep
+data/transcripts/*
+!data/transcripts/.gitkeep
+data/indexes/*
+!data/indexes/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+EOL
+
+# Create placeholder files
+touch data/videos/.gitkeep
+touch data/transcripts/.gitkeep
+touch data/indexes/.gitkeep

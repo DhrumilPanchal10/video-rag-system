@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  video-rag-backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      - ./data:/app/data
+    # Add health check
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  video-rag-frontend:
+    image: python:3.10-slim
+    working_dir: /app
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    depends_on:
+      video-rag-backend:
+        condition: service_healthy
+    command: >
+      sh -c "pip install -r requirements-docker.txt &&
+             streamlit run app/frontend/app.py --server.port 8501 --server.address 0.0.0.0"
