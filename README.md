@@ -24,33 +24,4 @@
 
 ## 🏗️ System Architecture
 
-```mermaid
-graph TD
-    A[YouTube URL] --> B[Video Download]
-    B --> C[Whisper Transcription]
-    C --> D[Semantic Chunking]
-    D --> E[FAISS Indexing]
-    E --> F[Vector Database]
-    
-    G[User Question] --> H[Semantic Search]
-    H --> I[Cross-Encoder Reranking]
-    I --> J[LLM Context Generation]
-    J --> K[Groq API]
-    K --> L[Answer with Timestamps]
-    
-    F --> H
-    subgraph Frontend
-        M[Streamlit UI] --> G
-        L --> M
-    end
-    
-    subgraph Backend
-        B
-        C
-        D
-        E
-        H
-        I
-        J
-        K
-    end
+![System Architecture](./RAG DIagram.png)
